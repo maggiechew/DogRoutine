@@ -43,7 +43,7 @@ function randomizeTrueFalse() {
 
 function randomContainerFill() {
   let x = Math.random();
-  return (x * 1000)
+  return x * 1000
 }
 
 // console.log(object.isBig)

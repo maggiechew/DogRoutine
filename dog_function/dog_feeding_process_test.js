@@ -1,13 +1,3 @@
-function stringMe (object) {
-  return JSON.stringify(object)
-}
-
-function status () {
-  console.log(`Penny's status is: ` + stringMe(Penny))
-  console.log(`The bowls look like: ` + stringMe(bowl))
-  console.log(`The food container: ` + stringMe(foodContainer))
-}
-
 const {
   Penny,
   foodContainer,
@@ -19,6 +9,18 @@ const {
 const { partOne } = require("./PartOne_Functions.js");
 const { partTwo } = require("./PartTwo_Functions.js");
 const { partThree } = require("./PartThree_Functions.js");
+
+
+function stringMe (object) {
+  return JSON.stringify(object)
+}
+
+function status () {
+  console.log(`Penny's status is: `,Penny)
+  console.log(`The bowls look like: ` + stringMe(bowl))
+  console.log(`The food container: ` + stringMe(foodContainer))
+}
+
 
 function doggyFeedingProcess() {
   executeAsynchronously([partOne, partTwo, partThree])
