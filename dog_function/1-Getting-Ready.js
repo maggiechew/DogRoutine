@@ -1,3 +1,4 @@
+const { waitMS } = require("../utils");
 const {
   Penny,
   foodContainer,
@@ -7,14 +8,14 @@ const {
 } = require("./dog_object_status");
 
 async function gettingReady() {
-  await goodMorning();
+  goodMorning();
   await hastoPee();
   await dogFoodContainer();
   await dogWaiting();
 
   return "Part One Complete";
 }
-
+// make async
 function goodMorning() {
   console.log(
     `Good morning, puppy! It's a beautiful day, and time for your breakfast!`
@@ -27,25 +28,22 @@ function goodMorning() {
   }, 3000);
 }
 
-function hastoPee() {
+async function hastoPee() {
   console.log("Does Penny have to pee?");
-  return new Promise((resolve) => {
-    if (Penny.hasToPee) {
-      console.log("BING BING... Penny says she has to pee!");
-      Penny.location = "Outside";
-      console.log(`We let Penny outside \n ...... Waiting for Penny.......`);
-      setTimeout(() => {
-        console.log("Letting the dog in!");
-        Penny.location = "Kitchen";
-        Penny.hasToPee = false;
-        resolve(console.log("Penny is all done her business"));
-      }, 2000);
-    } else {
-      setTimeout(() => {
-        resolve(console.log("Penny doesn't have to pee"));
-      }, 2000);
-    }
-  });
+  // return new Promise((resolve) => {
+  if (Penny.hasToPee) {
+    console.log("BING BING... Penny says she has to pee!");
+    Penny.location = "Outside";
+    console.log(`We let Penny outside \n ...... Waiting for Penny.......`);
+    await waitMS(2000);
+    console.log("Letting the dog in!");
+    Penny.location = "Kitchen";
+    Penny.hasToPee = false;
+    console.log("Penny is all done her business");
+  } else {
+    await waitMS(2000);
+    console.log("Penny doesn't have to pee");
+  }
 }
 
 function dogFoodContainer() {
@@ -92,21 +90,9 @@ function dogWaiting() {
   });
 }
 
-//   function dogWaiting() {
-//     console.log("Is the dog waiting in her spot?");
-//     if ((Penny.location = "spot")) {
-//       console.log("She is waiting nicely... what a good dog!");
-//     } else {
-//       console.log(`She isn't! Silly goose`);
-//       console.log(`"Penny, spot!"`);
-//       console.log("Waiting for Penny.......");
-//       Penny.location = "spot";
-//         console.log("She's in her spot! Good girl!");
-//   }}
+module.exports = {
+  gettingReady,
+};
 
-//   module.exports = {
-//     partOne
-//   };
-
-// dogWaiting();
-gettingReady();
+// // dogWaiting();
+// gettingReady();

@@ -9,7 +9,7 @@ const {
 async function preparingFoods() {
   await theScale();
   await waterBowl();
-  //   await dogWaiting();
+  await dogWaiting();
   console.log("Success!");
   return "Part Two Complete";
 }
@@ -63,25 +63,25 @@ function waterBowl() {
 }
 
 function dogWaiting() {
-    console.log("Is the dog waiting in her spot?");
-    return new Promise((resolve) => {
-      if (Penny.location == "spot") {
-        resolve(console.log("She is waiting nicely... what a good dog!"));
-      } else {
-        console.log(`She isn't! Silly goose`);
-        console.log(`"Penny, spot!"`);
-        console.log("Waiting for Penny.......");
-        setTimeout(() => {
-          Penny.location = "spot";
-          resolve(console.log("She's in her spot! Good girl!"));
-        }, 3000);
-      }
-    });
-  }
+  console.log("Is the dog waiting in her spot?");
+  return new Promise((resolve) => {
+    if (Penny.location == "spot") {
+      resolve(console.log("She is waiting nicely... what a good dog!"));
+    } else {
+      console.log(`She isn't! Silly goose`);
+      console.log(`"Penny, spot!"`);
+      console.log("Waiting for Penny.......");
+      setTimeout(() => {
+        Penny.location = "spot";
+        resolve(console.log("She's in her spot! Good girl!"));
+      }, 3000);
+    }
+  });
+}
 
-// dogWaiting();
-preparingFoods();
+// // dogWaiting();
+// preparingFoods();
 
-//   module.exports = {
-//     partTwo
-//   };
+  module.exports = {
+    preparingFoods
+  };

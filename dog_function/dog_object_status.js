@@ -50,7 +50,7 @@ function randomContainerFill() {
 
 
 
-module.exports = { Penny, foodContainer, bowl, kitchenScale, executeAsynchronously };
+module.exports = { Penny, foodContainer, bowl, kitchenScale };
 
 // const foodContainerJSON = JSON.stringify(foodContainer)
 
