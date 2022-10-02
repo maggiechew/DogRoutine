@@ -7,8 +7,8 @@ const {
 } = require("./dog_object_status");
 
 const { partOne } = require("./PartOne_Functions.js");
-const { partTwo } = require("./PartTwo_Functions.js");
-const { partThree } = require("./PartThree_Functions.js");
+const { partTwo } = require("../PartTwo_Functions.js");
+const { partThree } = require("../PartThree_Functions.js");
 
 
 function stringMe (object) {

@@ -9,18 +9,18 @@ const Penny = {
 };
 
 const foodContainer = {
-  Amount: randomContainerFill(),
-  Location: "Kitchen",
+  amount: Math.floor(randomContainerFill()),
+  location: "Kitchen",
 };
 
 const bowl = {
   water: {
-    Amount: randomContainerFill(),
-    Location: "Stand",
+    amount: Math.floor(randomContainerFill()),
+    location: "Stand",
   },
   food: {
-    Amount: 0,
-    Location: "Stand"
+    amount: 0,
+    location: "Stand"
   }
 };
 
@@ -29,10 +29,19 @@ const kitchenScale = {
     isTared: false
 }
 
-function executeAsynchronously(functions, timeout) {
-  for (let i = 0; i < functions.length; i++) {
-    setTimeout(functions[i], timeout);
-  }
+// function executeAsynchronously(functions, timeout) {
+//   for (let i = 0; i < functions.length; i++) {
+//     setTimeout(functions[i], timeout);
+//   }
+// }
+
+
+function sleep(milliseconds) {
+  const date = Date.now();
+  let currentDate = null;
+  do {
+    currentDate = Date.now();
+  } while (currentDate - date < milliseconds);
 }
 
 function randomizeTrueFalse() {
@@ -50,7 +59,7 @@ function randomContainerFill() {
 
 
 
-module.exports = { Penny, foodContainer, bowl, kitchenScale };
+module.exports = { Penny, foodContainer, bowl, kitchenScale, sleep };
 
 // const foodContainerJSON = JSON.stringify(foodContainer)
 
